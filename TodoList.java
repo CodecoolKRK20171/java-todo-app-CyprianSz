@@ -16,5 +16,7 @@ public class TodoList{
         for (TodoItem task : this.tasks) {
             if (task.isCompleted == false) { undoneTasks.add(task) }
         }
+
+        this.tasks = undenTasks;
     }
 }
