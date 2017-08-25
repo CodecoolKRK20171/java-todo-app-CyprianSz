@@ -5,7 +5,7 @@ public class TodoItem{
 
     public TodoItem(String content) {
         this.content = content;
-        this.isCompleted = isCompleted;
+        this.isCompleted = false;
     }
 
     public void markAsCompleated() {

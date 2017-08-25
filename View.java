@@ -1,6 +1,6 @@
-import java.util.Scanner;
+import java.util.Scanner; // pozamykać ten skaner gdzie potrzeba
 import java.util.ArrayList;
-import java.io.*; // zaimportować tylko to co potrzebne (Chyba 'Str')
+//import java.io.*; // zaimportować tylko to co potrzebne (Chyba 'Str')
 
 
 public class View {
@@ -20,7 +20,7 @@ public class View {
         String choice;
 
         do {
-            System.out.println("Please specify a command [list, add, mark, archive, exit]: ");
+            System.out.println("\nPlease specify a command [list, add, mark, archive, exit]: ");
             choice = input.next().toLowerCase();
         } while (!possibleCommands.contains(choice));
 
@@ -28,7 +28,7 @@ public class View {
     }
 
     public String takeTaskContent() {
-        System.out.println("Enter task content: ");
+        System.out.println("\nEnter task content: ");
         return input.next();
     }
 
@@ -36,7 +36,7 @@ public class View {
         String choice = "";
 
         do {
-            System.out.println("Enter proper number to mark: ");
+            System.out.println("\nEnter proper number to mark: ");
             choice = input.next();
         } while (!choice.matches("^([1-9][0-9]*)$"));
 
@@ -44,17 +44,17 @@ public class View {
     }
 
     public void printThatCompleated(TodoItem task) {
-        System.out.println(task.content + " is compleated");
+        System.out.println("\n" + task.content + " is compleated");
     }
 
     public void printThatArchived() {
-        System.out.println("All completed tasks got deleted.");
+        System.out.println("\nAll completed tasks got deleted.");
     }
 
     public void printAllTasks(TodoList toDoList) {
         Integer index = 1;
 
-        System.out.println("You saved the following to-do items: ");
+        System.out.println("\nYou saved the following to-do items: ");
 
         for (TodoItem task : toDoList.tasks) {
             String mark = task.isCompleted ? "X" : " ";
