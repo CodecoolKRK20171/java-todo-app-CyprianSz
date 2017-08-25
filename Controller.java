@@ -5,7 +5,7 @@ public class Controller {
 
     private View view = new View();
 
-    public void addNewTask(TodoList toDolist) {
+    public void addNewTask(TodoList toDoList) {
         String content = view.takeTaskContent();
         TodoItem newTask = new TodoItem(content);
         toDoList.add(newTask);
@@ -16,12 +16,12 @@ public class Controller {
         TodoItem task;
 
         try {
-            view.printAllTasks(todoList);
+            view.printAllTasks(toDoList);
             choice = view.takeNumberToMark();
             int choiceInt = Integer.parseInt(choice);
             task = toDoList.tasks.get(choiceInt - 1);
             task.markAsCompleated();
-            view.printThatCompleated();
+            view.printThatCompleated(task);
         }
         catch (IndexOutOfBoundsException e) {
             System.out.println("No task with such number !");

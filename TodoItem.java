@@ -9,6 +9,6 @@ public class TodoItem{
     }
 
     public void markAsCompleated() {
-        this.completed = true;
+        this.isCompleted = true;
     }
 }

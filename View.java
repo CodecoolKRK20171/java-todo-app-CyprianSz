@@ -5,16 +5,20 @@ import java.io.*; // zaimportować tylko to co potrzebne (Chyba 'Str')
 
 public class View {
 
-    static private Scanner input = new Scanner(System.in);
-    static private ArrayList<String> possibleCommands;
+    private static Scanner input = new Scanner(System.in);
+    private static ArrayList<String> possibleCommands = new ArrayList<>();
 
     public View() {
-        possibleCommands.add("list"); possibleCommands.add("add");
-        possibleCommands.add("mark"); possibleCommands.add("archive");
+        possibleCommands.add("list");
+        possibleCommands.add("add");
+        possibleCommands.add("mark");
+        possibleCommands.add("archive");
         possibleCommands.add("exit");
     }
 
     public String takeUserChoice() {
+        String choice;
+
         do {
             System.out.println("Please specify a command [list, add, mark, archive, exit]: ");
             choice = input.next().toLowerCase();
@@ -34,7 +38,9 @@ public class View {
         do {
             System.out.println("Enter proper number to mark: ");
             choice = input.next();
-        } while (!Str.matches("^([1-9][0-9]*)$"));
+        } while (!choice.matches("^([1-9][0-9]*)$"));
+
+        return choice;
     }
 
     public void printThatCompleated(TodoItem task) {
@@ -52,7 +58,7 @@ public class View {
 
         for (TodoItem task : toDoList.tasks) {
             String mark = task.isCompleted ? "X" : " ";
-            System.out.println(index + "." + "[" + mark + "]" + task.content);
+            System.out.println(index + "." + " [" + mark + "] " + task.content);
             index += 1;
         }
     }
